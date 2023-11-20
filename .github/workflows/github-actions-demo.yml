@@ -22,7 +22,7 @@ jobs:
           cpanm -n --installdeps .
       - name: run tests
         run: |
-          prove -rv t/
+          prove -rv -l t/
       - uses: actions/upload-artifact@v3  # upload test results
         if: success() || failure()        # run this step even if previous step failed
         with:
