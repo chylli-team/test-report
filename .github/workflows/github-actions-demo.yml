@@ -19,6 +19,7 @@ jobs:
     steps:
       - name: set env
         run: |
+          perl -v
           cpanm -n --installdeps .
       - name: run tests
         run: |
