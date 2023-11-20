@@ -6,6 +6,7 @@ use Exporter qw(import);
 our @EXPORT_OK = qw(foo bar);
 
 sub foo {
+    die "bad";
     return 1;
 }
 
