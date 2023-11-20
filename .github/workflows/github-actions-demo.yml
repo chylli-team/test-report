@@ -19,8 +19,8 @@ jobs:
     steps:
       - name: set env
         run: |
-          curl -L https://cpanmin.us | perl - App::cpanminus
-          cpanm -n --installdeps .
+          curl -L https://cpanmin.us | sudo perl - App::cpanminus
+          sudo cpanm -n --installdeps .
       - name: run tests
         run: |
           prove -rv -l t/
