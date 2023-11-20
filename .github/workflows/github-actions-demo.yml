@@ -17,6 +17,7 @@ jobs:
       run:
         shell: bash -le {0}
     steps:
+      - uses: actions/checkout@v2
       - name: set env
         run: |
           curl -L https://cpanmin.us | sudo perl - App::cpanminus
