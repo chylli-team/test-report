@@ -24,6 +24,7 @@ jobs:
           sudo cpanm -n Test::More TAP::Formatter::JUnit
       - name: run tests
         run: |
+          ls
           prove -rv -l t/
       - uses: actions/upload-artifact@v3  # upload test results
         if: success() || failure()        # run this step even if previous step failed
