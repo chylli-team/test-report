@@ -1,0 +1,30 @@
+name: CI
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+  pull_request:
+env:
+  PERL_TEST_HARNESS_DUMP_TAP: /tmp/test-output
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -le {0}
+    steps:
+      - name: set env
+        run: |
+          cpanm -n --installdeps .
+      - name: run tests
+        run: |
+          prove -rv t/
+      - uses: actions/upload-artifact@v3  # upload test results
+        if: success() || failure()        # run this step even if previous step failed
+        with:
+          name: test-results
+          path: /tmp/test-output
