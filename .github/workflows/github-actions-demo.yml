@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: set env
         run: |
-          perl -v
+          curl -L https://cpanmin.us | perl - App::cpanminus
           cpanm -n --installdeps .
       - name: run tests
         run: |
