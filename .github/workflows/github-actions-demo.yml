@@ -21,7 +21,7 @@ jobs:
         run: |
           curl -L https://cpanmin.us | sudo perl - App::cpanminus
           #sudo cpanm -n --installdeps .
-          sudo cpanm Test::More TAP::Formatter::JUnit
+          sudo cpanm -n Test::More TAP::Formatter::JUnit
       - name: run tests
         run: |
           prove -rv -l t/
